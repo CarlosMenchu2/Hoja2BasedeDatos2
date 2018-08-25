@@ -16,6 +16,11 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        buttonGroup1.add(LecturaConfirmada);
+        buttonGroup1.add(lecturaRepetible);
+        buttonGroup1.add(Serializable);
+        buttonGroup1.add(LecturaNoConfirmada);
     }
 
     /**
@@ -27,21 +32,138 @@ public class Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        txtCarne = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtCarrera = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        Serializable = new javax.swing.JRadioButton();
+        LecturaNoConfirmada = new javax.swing.JRadioButton();
+        LecturaConfirmada = new javax.swing.JRadioButton();
+        lecturaRepetible = new javax.swing.JRadioButton();
+        btnIngresar1 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 837, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(661, 704));
+        setMinimumSize(new java.awt.Dimension(661, 704));
+        setPreferredSize(new java.awt.Dimension(661, 704));
+        getContentPane().setLayout(null);
+
+        txtCarne.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(txtCarne);
+        txtCarne.setBounds(260, 100, 220, 30);
+
+        txtNombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(txtNombre);
+        txtNombre.setBounds(260, 150, 220, 30);
+
+        txtApellido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(txtApellido);
+        txtApellido.setBounds(260, 200, 220, 30);
+
+        txtCarrera.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(txtCarrera);
+        txtCarrera.setBounds(260, 250, 220, 30);
+
+        btnIngresar.setText("Actualizar");
+        getContentPane().add(btnIngresar);
+        btnIngresar.setBounds(330, 310, 119, 25);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setText("Carrera:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(160, 250, 70, 30);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel2.setText("NIVELES DE AISLAMIENTO");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(150, 360, 340, 30);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setText("Nombre:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(160, 150, 70, 30);
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setText("Apellido:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(160, 200, 70, 30);
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setText("Carne:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(160, 100, 70, 30);
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(410, 50, 49, 25);
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel6.setText("INGRESO DE ESTUDIANTE");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(220, 50, 190, 30);
+
+        Serializable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        Serializable.setForeground(new java.awt.Color(204, 0, 0));
+        Serializable.setText("SERIALIZABLE: ");
+        getContentPane().add(Serializable);
+        Serializable.setBounds(180, 530, 290, 27);
+
+        LecturaNoConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        LecturaNoConfirmada.setForeground(new java.awt.Color(204, 0, 0));
+        LecturaNoConfirmada.setText("READ-UNCOMMITTED (LECTURA NO CONFIRMADA)");
+        getContentPane().add(LecturaNoConfirmada);
+        LecturaNoConfirmada.setBounds(180, 410, 380, 27);
+
+        LecturaConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        LecturaConfirmada.setForeground(new java.awt.Color(204, 0, 0));
+        LecturaConfirmada.setText("READ-COMMITTED (LECTURA CONFIRMADA):");
+        getContentPane().add(LecturaConfirmada);
+        LecturaConfirmada.setBounds(180, 450, 350, 27);
+
+        lecturaRepetible.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lecturaRepetible.setForeground(new java.awt.Color(204, 0, 0));
+        lecturaRepetible.setText("REPEATABLE-READ (LECTURA REPETIBLE):");
+        getContentPane().add(lecturaRepetible);
+        lecturaRepetible.setBounds(180, 490, 360, 27);
+
+        btnIngresar1.setText("Ingresar");
+        btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIngresar1);
+        btnIngresar1.setBounds(180, 310, 119, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
+      
+        //EL IF SIRVE PARA VERIFICAR QUE TODOS LOS CAMPOS ESTEN LLENOS
+        if (!"".equals(txtCarne.getText()) && !"".equals(txtCarrera.getText()) && !"".equals(txtNombre.getText()) && !"".equals(txtApellido.getText())) {
+        
+        }
+    }//GEN-LAST:event_btnIngresar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +201,23 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton LecturaConfirmada;
+    private javax.swing.JRadioButton LecturaNoConfirmada;
+    private javax.swing.JRadioButton Serializable;
+    private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnIngresar1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JRadioButton lecturaRepetible;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCarne;
+    private javax.swing.JTextField txtCarrera;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
