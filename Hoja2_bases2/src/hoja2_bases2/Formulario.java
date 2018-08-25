@@ -5,6 +5,13 @@
  */
 package hoja2_bases2;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author carlo
@@ -53,6 +60,7 @@ public class Formulario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1242, 704));
@@ -175,6 +183,15 @@ public class Formulario extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(40, 370, 340, 30);
 
+        jButton2.setText("Ver Estudiantes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(450, 610, 130, 25);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,6 +206,39 @@ public class Formulario extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btnIngresar1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+//        DefaultTableModel modelo = new DefaultTableModel();
+//        
+//        modelo.addColumn("ID Estudiante");
+//        modelo.addColumn("Nombre");
+//        modelo.addColumn("Apellido");
+//        modelo.addColumn("Carrera");
+//        
+//        jTable1.setModel(modelo);
+//        
+//        String[] datos = new String[4];
+//        Statement st;
+//          try {
+//
+//            //st=cn.createStatement();
+//            ResultSet rs=st.executeQuery("SELECT idEst,Carne,Nombre,Apellido,Carrera FROM estudiante");
+//              
+//        while (rs.next()) {
+//            datos[0]= rs.getString(1);
+//            datos[1]= rs.getString(2);
+//            datos[2]= rs.getString(3);
+//            datos[3]= rs.getString(4);
+//            modelo.addRow(datos);
+//        }
+//              
+//          } catch (SQLException ex) {
+//              Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+//          }
+    
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +283,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
