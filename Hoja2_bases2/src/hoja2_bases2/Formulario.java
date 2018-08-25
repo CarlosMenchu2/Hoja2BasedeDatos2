@@ -50,58 +50,61 @@ public class Formulario extends javax.swing.JFrame {
         LecturaConfirmada = new javax.swing.JRadioButton();
         lecturaRepetible = new javax.swing.JRadioButton();
         btnIngresar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(661, 704));
-        setMinimumSize(new java.awt.Dimension(661, 704));
-        setPreferredSize(new java.awt.Dimension(661, 704));
+        setMaximumSize(new java.awt.Dimension(1242, 704));
+        setMinimumSize(new java.awt.Dimension(1242, 704));
+        setPreferredSize(new java.awt.Dimension(1242, 704));
         getContentPane().setLayout(null);
 
         txtCarne.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(txtCarne);
-        txtCarne.setBounds(260, 100, 220, 30);
+        txtCarne.setBounds(150, 110, 220, 30);
 
         txtNombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(260, 150, 220, 30);
+        txtNombre.setBounds(150, 160, 220, 30);
 
         txtApellido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(txtApellido);
-        txtApellido.setBounds(260, 200, 220, 30);
+        txtApellido.setBounds(150, 210, 220, 30);
 
         txtCarrera.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(txtCarrera);
-        txtCarrera.setBounds(260, 250, 220, 30);
+        txtCarrera.setBounds(150, 260, 220, 30);
 
         btnIngresar.setText("Actualizar");
         getContentPane().add(btnIngresar);
-        btnIngresar.setBounds(330, 310, 119, 25);
+        btnIngresar.setBounds(220, 320, 119, 25);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setText("Carrera:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(160, 250, 70, 30);
+        jLabel1.setBounds(50, 260, 70, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 0, 153));
-        jLabel2.setText("NIVELES DE AISLAMIENTO");
+        jLabel2.setText("LISTADO DE ESTUDIANTES");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(150, 360, 340, 30);
+        jLabel2.setBounds(650, 120, 340, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(160, 150, 70, 30);
+        jLabel3.setBounds(50, 160, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Apellido:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(160, 200, 70, 30);
+        jLabel4.setBounds(50, 210, 70, 30);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setText("Carne:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(160, 100, 70, 30);
+        jLabel5.setBounds(50, 110, 70, 30);
 
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,36 +113,36 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(410, 50, 49, 25);
+        jButton1.setBounds(300, 60, 49, 25);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("INGRESO DE ESTUDIANTE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(220, 50, 190, 30);
+        jLabel6.setBounds(110, 60, 190, 30);
 
         Serializable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Serializable.setForeground(new java.awt.Color(204, 0, 0));
         Serializable.setText("SERIALIZABLE: ");
         getContentPane().add(Serializable);
-        Serializable.setBounds(180, 530, 290, 27);
+        Serializable.setBounds(40, 540, 290, 27);
 
         LecturaNoConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         LecturaNoConfirmada.setForeground(new java.awt.Color(204, 0, 0));
         LecturaNoConfirmada.setText("READ-UNCOMMITTED (LECTURA NO CONFIRMADA)");
         getContentPane().add(LecturaNoConfirmada);
-        LecturaNoConfirmada.setBounds(180, 410, 380, 27);
+        LecturaNoConfirmada.setBounds(40, 420, 380, 27);
 
         LecturaConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         LecturaConfirmada.setForeground(new java.awt.Color(204, 0, 0));
         LecturaConfirmada.setText("READ-COMMITTED (LECTURA CONFIRMADA):");
         getContentPane().add(LecturaConfirmada);
-        LecturaConfirmada.setBounds(180, 450, 350, 27);
+        LecturaConfirmada.setBounds(40, 460, 350, 27);
 
         lecturaRepetible.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lecturaRepetible.setForeground(new java.awt.Color(204, 0, 0));
         lecturaRepetible.setText("REPEATABLE-READ (LECTURA REPETIBLE):");
         getContentPane().add(lecturaRepetible);
-        lecturaRepetible.setBounds(180, 490, 360, 27);
+        lecturaRepetible.setBounds(40, 500, 360, 27);
 
         btnIngresar1.setText("Ingresar");
         btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +151,29 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIngresar1);
-        btnIngresar1.setBounds(180, 310, 119, 25);
+        btnIngresar1.setBounds(70, 320, 119, 25);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Carne", "Nombre", "Apellido", "Carrera"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(450, 180, 750, 403);
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel7.setText("NIVELES DE AISLAMIENTO");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(40, 370, 340, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,6 +239,9 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton lecturaRepetible;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCarne;
