@@ -5,6 +5,7 @@
  */
 package hoja2_bases2;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,6 +18,9 @@ import javax.swing.table.DefaultTableModel;
  * @author carlo
  */
 public class Formulario extends javax.swing.JFrame {
+    
+        Conexion con = new Conexion();
+        Connection cn= con.ConectarBaseDatos();
 
     /**
      * Creates new form Formulario
@@ -210,33 +214,33 @@ public class Formulario extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-//        DefaultTableModel modelo = new DefaultTableModel();
-//        
-//        modelo.addColumn("ID Estudiante");
-//        modelo.addColumn("Nombre");
-//        modelo.addColumn("Apellido");
-//        modelo.addColumn("Carrera");
-//        
-//        jTable1.setModel(modelo);
-//        
-//        String[] datos = new String[4];
-//        Statement st;
-//          try {
-//
-//            //st=cn.createStatement();
-//            ResultSet rs=st.executeQuery("SELECT idEst,Carne,Nombre,Apellido,Carrera FROM estudiante");
-//              
-//        while (rs.next()) {
-//            datos[0]= rs.getString(1);
-//            datos[1]= rs.getString(2);
-//            datos[2]= rs.getString(3);
-//            datos[3]= rs.getString(4);
-//            modelo.addRow(datos);
-//        }
-//              
-//          } catch (SQLException ex) {
-//              Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
-//          }
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        modelo.addColumn("ID Estudiante");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Carrera");
+        
+        jTable1.setModel(modelo);
+        
+        String[] datos = new String[4];
+        Statement st;
+          try {
+
+            st=cn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT idEst,Carne,Nombre,Apellido,Carrera FROM estudiante");
+              
+        while (rs.next()) {
+            datos[0]= rs.getString(1);
+            datos[1]= rs.getString(2);
+            datos[2]= rs.getString(3);
+            datos[3]= rs.getString(4);
+            modelo.addRow(datos);
+        }
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+          }
     
     }//GEN-LAST:event_jButton2ActionPerformed
 
