@@ -6,11 +6,13 @@
 package hoja2_bases2;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +23,7 @@ public class Formulario extends javax.swing.JFrame {
     
         Conexion con = new Conexion();
         Connection cn= con.ConectarBaseDatos();
+        int id1;
 
     /**
      * Creates new form Formulario
@@ -32,6 +35,7 @@ public class Formulario extends javax.swing.JFrame {
         buttonGroup1.add(lecturaRepetible);
         buttonGroup1.add(Serializable);
         buttonGroup1.add(LecturaNoConfirmada);
+        
     }
 
     /**
@@ -65,6 +69,12 @@ public class Formulario extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1242, 704));
@@ -88,7 +98,12 @@ public class Formulario extends javax.swing.JFrame {
         getContentPane().add(txtCarrera);
         txtCarrera.setBounds(150, 260, 220, 30);
 
-        btnIngresar.setText("Actualizar");
+        btnIngresar.setText("Guardar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnIngresar);
         btnIngresar.setBounds(220, 320, 119, 25);
 
@@ -118,43 +133,43 @@ public class Formulario extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(50, 110, 70, 30);
 
-        jButton1.setText("OK");
+        jButton1.setText("Deshacer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(300, 60, 49, 25);
+        jButton1.setBounds(140, 370, 120, 25);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("INGRESO DE ESTUDIANTE");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(110, 60, 190, 30);
+        jLabel6.setBounds(140, 50, 240, 30);
 
         Serializable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Serializable.setForeground(new java.awt.Color(204, 0, 0));
         Serializable.setText("SERIALIZABLE: ");
         getContentPane().add(Serializable);
-        Serializable.setBounds(40, 540, 290, 27);
+        Serializable.setBounds(840, 550, 290, 27);
 
         LecturaNoConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         LecturaNoConfirmada.setForeground(new java.awt.Color(204, 0, 0));
         LecturaNoConfirmada.setText("READ-UNCOMMITTED (LECTURA NO CONFIRMADA)");
         getContentPane().add(LecturaNoConfirmada);
-        LecturaNoConfirmada.setBounds(40, 420, 380, 27);
+        LecturaNoConfirmada.setBounds(840, 430, 380, 27);
 
         LecturaConfirmada.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         LecturaConfirmada.setForeground(new java.awt.Color(204, 0, 0));
         LecturaConfirmada.setText("READ-COMMITTED (LECTURA CONFIRMADA):");
         getContentPane().add(LecturaConfirmada);
-        LecturaConfirmada.setBounds(40, 460, 350, 27);
+        LecturaConfirmada.setBounds(840, 470, 350, 27);
 
         lecturaRepetible.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lecturaRepetible.setForeground(new java.awt.Color(204, 0, 0));
         lecturaRepetible.setText("REPEATABLE-READ (LECTURA REPETIBLE):");
         getContentPane().add(lecturaRepetible);
-        lecturaRepetible.setBounds(40, 500, 360, 27);
+        lecturaRepetible.setBounds(840, 510, 360, 27);
 
         btnIngresar1.setText("Ingresar");
         btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -167,25 +182,22 @@ public class Formulario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Carne", "Nombre", "Apellido", "Carrera"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(450, 180, 750, 403);
+        jScrollPane1.setBounds(450, 180, 750, 180);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 0, 153));
         jLabel7.setText("NIVELES DE AISLAMIENTO");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(40, 370, 340, 30);
+        jLabel7.setBounds(840, 380, 340, 30);
 
         jButton2.setText("Ver Estudiantes");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -194,13 +206,71 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(450, 610, 130, 25);
+        jButton2.setBounds(1070, 130, 130, 25);
+
+        jButton3.setText("Setear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(850, 610, 71, 25);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setText("Nivel de Aislamiento:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(750, 30, 189, 22);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setText("-----");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(950, 25, 280, 30);
+
+        jButton4.setText("Aislamiento");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(630, 30, 110, 25);
+
+        jButton5.setText("Modificar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(1070, 90, 130, 25);
+
+        jButton6.setText("Actualizar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(70, 430, 120, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        try {
+                String sql="rollback";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Cambios borrados");
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
+            }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
@@ -208,6 +278,25 @@ public class Formulario extends javax.swing.JFrame {
         //EL IF SIRVE PARA VERIFICAR QUE TODOS LOS CAMPOS ESTEN LLENOS
         if (!"".equals(txtCarne.getText()) && !"".equals(txtCarrera.getText()) && !"".equals(txtNombre.getText()) && !"".equals(txtApellido.getText())) {
         
+            
+             String sql1="START TRANSACTION ";
+            String sql="INSERT INTO estudiante(Carne,Nombre,Apellido,Carrera) VALUES(?,?,?,?)";
+           
+            
+            try {
+            cn.setAutoCommit(false);
+            PreparedStatement pps = cn.prepareStatement(sql);
+            pps.setString(1,txtCarne.getText());
+            pps.setString(2,txtNombre.getText());
+            pps.setString(3,txtApellido.getText());
+            pps.setString(4,txtCarrera.getText());
+            pps.executeUpdate();
+            
+            
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_btnIngresar1ActionPerformed
 
@@ -217,13 +306,14 @@ public class Formulario extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         
         modelo.addColumn("ID Estudiante");
+        modelo.addColumn("Carne");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Carrera");
         
         jTable1.setModel(modelo);
         
-        String[] datos = new String[4];
+        String[] datos = new String[5];
         Statement st;
           try {
 
@@ -235,6 +325,7 @@ public class Formulario extends javax.swing.JFrame {
             datos[1]= rs.getString(2);
             datos[2]= rs.getString(3);
             datos[3]= rs.getString(4);
+            datos[4]= rs.getString(5);
             modelo.addRow(datos);
         }
               
@@ -244,6 +335,162 @@ public class Formulario extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(LecturaNoConfirmada.isSelected()){
+            
+            try {
+                String sql="SET GLOBAL TRANSACTION ISOLATION LEVEL READ UNCOMMITTED";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                
+                cn.close();
+                con = new Conexion();
+                cn= con.ConectarBaseDatos();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        }else if(LecturaConfirmada.isSelected()){
+            
+            try {
+                String sql="SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                
+                cn.close();
+                con = new Conexion();
+                cn= con.ConectarBaseDatos();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else if(lecturaRepetible.isSelected()){
+            
+            try {
+                String sql="SET GLOBAL TRANSACTION ISOLATION LEVEL REPEATABLE READ";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                
+                cn.close();
+                con = new Conexion();
+                cn= con.ConectarBaseDatos();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else if(Serializable.isSelected()){
+            
+            try {
+                String sql="SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                
+                cn.close();
+                con = new Conexion();
+                cn= con.ConectarBaseDatos();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        
+         
+            try {
+                String sql="commit";
+                
+                PreparedStatement pps = cn.prepareStatement(sql);
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Guardado Exitoso");
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, ex);
+            }
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+       nivel();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        int fila =jTable1.getSelectedRow();
+        
+        
+        if(fila>=0){
+            id1=Integer.valueOf(jTable1.getValueAt(fila,0).toString());
+            txtCarne.setText(jTable1.getValueAt(fila,1).toString());
+            txtNombre.setText(jTable1.getValueAt(fila,2).toString());
+            txtApellido.setText(jTable1.getValueAt(fila,3).toString());
+            txtCarrera.setText(jTable1.getValueAt(fila,4).toString());
+            
+        }else{
+            
+            JOptionPane.showMessageDialog(null,"Debe seleccionar una fila para poder modificar");
+            
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            try {
+                // TODO add your handling code here:
+                cn.setAutoCommit(false);
+                
+                String sql1="START TRANSACTION ";
+                String sql2="UPDATE estudiante SET Carne='"+txtCarne.getText()+"',Nombre='"+txtNombre.getText()+"',Apellido='"+txtApellido.getText()+"',Carrera='"+txtCarrera.getText()+"' WHERE idEst='"+id1+"'";
+                PreparedStatement preparado= cn.prepareStatement(sql2);
+                
+                preparado.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Actualizado");
+                txtCarne.setText("");
+                txtNombre.setText("");
+                txtApellido.setText("");
+                txtCarrera.setText("");
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    public String nivel(){
+        
+        String nivel="";
+         try {
+          
+            String[] datos = new String[1];
+            Statement st;
+            st=cn.createStatement();
+            ResultSet rs=st.executeQuery("SELECT @@global.tx_isolation");
+             
+         while (rs.next()) {
+            datos[0]= rs.getString(1);
+            jLabel9.setText(datos[0]);
+        }
+            
+            
+            return  nivel;
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+          }
+         return nivel;
+    }
     /**
      * @param args the command line arguments
      */
@@ -288,6 +535,10 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -295,6 +546,8 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton lecturaRepetible;
